@@ -5,6 +5,15 @@ class IpaSym:
         self.symbol = symbol
         self.value = value
 
+    @staticmethod
+    def into_clusters(word):
+
+        for i in word:
+            if isinstance(i, Consonant):
+                print("'{}' is a consonant".format(i.symbol))
+            else:
+                print("'{}' is a vowel".format(i.symbol))
+
 
 class Consonant(IpaSym):
 
@@ -59,24 +68,11 @@ ch_25 = Consonant("j", 7)
 # example -> word: impartial
 word_in_list = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
 
-for sound in word_in_list:
-    print(sound.symbol, end='')
-
-
+IpaSym.into_clusters(word_in_list)
 
 
 
 """
-list_of_rand_el = [ch_03, ch_001, ch_002, ch_05, ch_006, ch_11, ch_24]
-
-for i in list_of_rand_el:
-    if isinstance(i, Consonant):
-        print("'{}' is a consonant".format(i.symbol))
-    else:
-        print("'{}' is a vowel".format(i.symbol))
-
-#print(Consonant.sonority_checker(cons_01, cons_10))
-
 
 vowel > glide > flap > liquid > nasal > fricative > affricate > plosive
 
