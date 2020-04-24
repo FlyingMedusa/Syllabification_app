@@ -6,13 +6,35 @@ class IpaSym:
         self.value = value
 
     @staticmethod
-    def into_clusters(word):
-
+    def VC_checker(word):
         for i in word:
             if isinstance(i, Consonant):
                 print("'{}' is a consonant".format(i.symbol))
             else:
                 print("'{}' is a vowel".format(i.symbol))
+
+    @staticmethod
+    def mop_syllabification(word):
+        all_syllables = []
+        syllable = ""
+        for el in word:
+            if isinstance(el, Consonant):
+                syllable += el.symbol
+            else:
+                syllable += el.symbol
+                all_syllables.append(syllable)
+                syllable = ""
+        last_syll = all_syllables[-1]
+        num = -1
+        while num > -3:
+            if not isinstance(word[num], Consonant):
+                break
+            if last_syll[-1] != word[num].symbol:
+                last_syll += word[num].symbol
+                all_syllables[-1] = last_syll
+                print(all_syllables)
+            num -= 1
+
 
 
 class Consonant(IpaSym):
@@ -68,7 +90,7 @@ ch_25 = Consonant("j", 7)
 # example -> word: impartial
 word_in_list = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
 
-IpaSym.into_clusters(word_in_list)
+IpaSym.mop_syllabification(word_in_list)
 
 
 
