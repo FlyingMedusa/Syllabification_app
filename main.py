@@ -26,15 +26,17 @@ class IpaSym:
                 syllable = ""
         last_syll = all_syllables[-1]
         num = -1
-        while num > -3:
+        cons_to_add = ""
+        while num >= -5:
             if not isinstance(word[num], Consonant):
-                break
-            if last_syll[-1] != word[num].symbol:
-                last_syll += word[num].symbol
+                cons_to_add = cons_to_add[::-1]
+                last_syll += cons_to_add
                 all_syllables[-1] = last_syll
-                print(all_syllables)
+                break
+            else:
+                cons_to_add += word[num].symbol
             num -= 1
-
+        print(all_syllables)
 
 
 class Consonant(IpaSym):
@@ -88,9 +90,19 @@ ch_25 = Consonant("j", 7)
 
 
 # example -> word: impartial
-word_in_list = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
+w_list_1 = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
+# example -> word: install
+w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
+# example -> word: destruction
+w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_23, ch_006, ch_05, ch_16, ch_005, ch_19]
+# example -> word: party
+# w_list_4 = [ch_01, ch_011, ch_21, ch_23, ch_001]
 
-IpaSym.mop_syllabification(word_in_list)
+
+list_of_words = [w_list_1, w_list_2, w_list_3]
+
+for word in list_of_words:
+    IpaSym.mop_syllabification(word)
 
 
 
