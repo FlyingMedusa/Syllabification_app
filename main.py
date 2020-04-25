@@ -36,7 +36,31 @@ class IpaSym:
             else:
                 cons_to_add += word[num].symbol
             num -= 1
-        print(all_syllables)
+        return all_syllables
+
+    @staticmethod
+    def word_initial_check(syllables):
+
+        three_c_clusters = ["spl", "spr", "str", "skr", "skw"]
+        two_c_clusters = ["sm", "sn", "st", "sw", "sk", "sl", "sp", "sf", "θw",
+                          "dw", "tw", "θr", "dr", "tr", "kw", "kr", "kl", "pr",
+                          "fr", "br", "gr", "pl", "fl", "bl", "gl", "ʃr"]
+
+        vowels = "iɪeæəʌɚuɔʊɑ"
+        syl_num = len(syllables)
+        for j in range(1, syl_num):
+            sound_num = len(syllables[j])
+            syllable = syllables[j]
+            cluster = ""
+            for k in range(sound_num):
+                if syllable[k] in vowels:
+                    break
+                else:
+                    cluster += syllable[k]
+            if cluster not in three_c_clusters and cluster != "":
+                syllables[j-1] += cluster[0]
+                syllables[j] = syllable[1:sound_num]
+        print(syllables)
 
 
 class Consonant(IpaSym):
@@ -82,7 +106,7 @@ ch_17 = Consonant("ʒ", 3)
 ch_18 = Consonant("m", 4)
 ch_19 = Consonant("n", 4)
 ch_20 = Consonant("ŋ", 4)
-ch_21 = Consonant("ɹ", 5)
+ch_21 = Consonant("r", 5)
 ch_22 = Consonant("l", 5)
 ch_23 = Consonant("ɾ", 6)
 ch_24 = Consonant("w", 7)
@@ -94,16 +118,18 @@ w_list_1 = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
 # example -> word: install
 w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
 # example -> word: destruction
-w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_23, ch_006, ch_05, ch_16, ch_005, ch_19]
-# example -> word: party
-# w_list_4 = [ch_01, ch_011, ch_21, ch_23, ch_001]
+w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_006, ch_05, ch_16, ch_005, ch_19]
+# example -> word: pastry
+w_list_4 = [ch_01, ch_003, ch_001, ch_14, ch_03, ch_21, ch_001]
 
 
-list_of_words = [w_list_1, w_list_2, w_list_3]
+
+list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4]
 
 for word in list_of_words:
-    IpaSym.mop_syllabification(word)
-
+    syll_list = IpaSym.mop_syllabification(word)
+    print(syll_list)
+    IpaSym.word_initial_check(syll_list)
 
 
 """
