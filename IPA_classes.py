@@ -62,6 +62,8 @@ class IpaSym:
                 syllables[j] = syllable[1:sound_num]
         print(syllables)
 
+        # here two_c_clusters
+
 
 class Consonant(IpaSym):
 
