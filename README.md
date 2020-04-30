@@ -13,5 +13,5 @@ Python version:     Python 3
 - GUI -> TkInter
 
 ### Files:
-- main.py
+- IPA_classes.py
     - [main script]
