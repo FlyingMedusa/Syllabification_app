@@ -58,17 +58,23 @@ class IpaSym:
                 else:
                     cluster += syllable[k]
             cluster_len = len(cluster)
+            three_c = False
+            temp_syll = syllables[j]
             if cluster_len >= 3:
                 m = cluster_len
-                temp_syll = syllables[j]
                 while m >= 3:
                     if cluster not in three_c_clusters and cluster_len >= 3:
                         syllables[j-1] += cluster[0]
                         syllables[j] = temp_syll[1:sound_num]
                         temp_syll = temp_syll[1:sound_num]
                         cluster = cluster[1:]
-                        print(syllables[j-1], syllables[j], cluster)
+                    elif cluster in three_c_clusters:
+                        three_c = True
                     m -= 1
+            if cluster not in two_c_clusters and cluster != "" and three_c == False:
+                syllables[j-1] += cluster[0]
+                syllables[j] = temp_syll[1:sound_num]
+
         print(syllables)
 
 
@@ -130,7 +136,7 @@ w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
 w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_006, ch_05, ch_16, ch_005, ch_19]
 # example -> word: pastry
 w_list_4 = [ch_01, ch_003, ch_001, ch_14, ch_03, ch_21, ch_001]
-# example -> word: destrguction
+# example -> testing non-words: destrguction
 w_list_5 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_06, ch_006, ch_05, ch_16, ch_005, ch_19]
 
 
