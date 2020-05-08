@@ -57,12 +57,19 @@ class IpaSym:
                     break
                 else:
                     cluster += syllable[k]
-            if cluster not in three_c_clusters and cluster != "":
-                syllables[j-1] += cluster[0]
-                syllables[j] = syllable[1:sound_num]
+            cluster_len = len(cluster)
+            if cluster_len >= 3:
+                m = cluster_len
+                temp_syll = syllables[j]
+                while m >= 3:
+                    if cluster not in three_c_clusters and cluster_len >= 3:
+                        syllables[j-1] += cluster[0]
+                        syllables[j] = temp_syll[1:sound_num]
+                        temp_syll = temp_syll[1:sound_num]
+                        cluster = cluster[1:]
+                        print(syllables[j-1], syllables[j], cluster)
+                    m -= 1
         print(syllables)
-
-        # here two_c_clusters
 
 
 class Consonant(IpaSym):
@@ -123,10 +130,12 @@ w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
 w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_006, ch_05, ch_16, ch_005, ch_19]
 # example -> word: pastry
 w_list_4 = [ch_01, ch_003, ch_001, ch_14, ch_03, ch_21, ch_001]
+# example -> word: destrguction
+w_list_5 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_06, ch_006, ch_05, ch_16, ch_005, ch_19]
 
 
 
-list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4]
+list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4, w_list_5]
 
 for word in list_of_words:
     syll_list = IpaSym.mop_syllabification(word)
