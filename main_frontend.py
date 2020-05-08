@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import Label, Button, StringVar
+import IPA_buttons as ipa_b
 
 
 class App1:
@@ -57,7 +58,8 @@ class App1:
         # ___IPA Buttons___
         # 1st row
         self.Button2 = tk.Button(master=top, text='''i''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('i'))
         self.Button2.place(relx=0.05, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɪ''', background="#ffe6f2", font=font04,
                                  foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
