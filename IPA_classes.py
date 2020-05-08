@@ -77,6 +77,10 @@ class IpaSym:
 
         print(syllables)
 
+    @staticmethod
+    def ssg_syllabification():
+        pass
+
 
 class Consonant(IpaSym):
 
@@ -126,28 +130,6 @@ ch_22 = Consonant("l", 5)
 ch_23 = Consonant("ɾ", 6)
 ch_24 = Consonant("w", 7)
 ch_25 = Consonant("j", 7)
-
-
-# example -> word: impartial
-w_list_1 = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
-# example -> word: install
-w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
-# example -> word: destruction
-w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_006, ch_05, ch_16, ch_005, ch_19]
-# example -> word: pastry
-w_list_4 = [ch_01, ch_003, ch_001, ch_14, ch_03, ch_21, ch_001]
-# example -> testing non-words: destrguction
-w_list_5 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_06, ch_006, ch_05, ch_16, ch_005, ch_19]
-
-
-
-list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4, w_list_5]
-
-for word in list_of_words:
-    syll_list = IpaSym.mop_syllabification(word)
-    print(syll_list)
-    IpaSym.word_initial_check(syll_list)
-
 
 """
 
