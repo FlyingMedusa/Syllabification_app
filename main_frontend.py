@@ -24,7 +24,7 @@ class App1:
         self.entry1 = tk.Entry(master=top, textvariable=user_input, background="#f2f2f2", foreground="#800040",
                                selectbackground="#ff3399", font=font02)
         self.entry1.place(relx=0.046, rely=0.25, height=36, relwidth=0.350)
-        user_input.set('HINT: type a transcribed word')
+        user_input.set('HINT: use the buttons below')
 
         # ___Entry Control Buttons___
         self.Button1 = tk.Button(master=top, text='UNDO', background='#ffe6f2',
