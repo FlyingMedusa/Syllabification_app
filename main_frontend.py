@@ -21,9 +21,10 @@ class App1:
                                font=font01, foreground="#5c5c8a")
         self.Label1.place(relx=0.268, rely=0.02, height=51, width=507)
 
-        self.entry1 = tk.Entry(master=top, background="#f2f2f2", foreground="#800040",
+        self.entry1 = tk.Entry(master=top, textvariable=user_input, background="#f2f2f2", foreground="#800040",
                                selectbackground="#ff3399", font=font02)
         self.entry1.place(relx=0.046, rely=0.25, height=36, relwidth=0.350)
+        user_input.set('HINT: type a transcribed word')
 
         # ___Entry Control Buttons___
         self.Button1 = tk.Button(master=top, text='UNDO', background='#ffe6f2',
@@ -59,115 +60,150 @@ class App1:
         # 1st row
         self.Button2 = tk.Button(master=top, text='''i''', background="#ffe6f2", font=font04,
                                  foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
-                                 command=lambda: ipa_b.ipa_key('i'))
+                                 command=lambda: ipa_b.ipa_key('i', user_input))
         self.Button2.place(relx=0.05, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɪ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ɪ', user_input))
         self.Button2.place(relx=0.12, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''e''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('e', user_input))
         self.Button2.place(relx=0.19, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''æ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1', 
+                                 command=lambda: ipa_b.ipa_key('æ', user_input))
         self.Button2.place(relx=0.26, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ə''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ə', user_input))
         self.Button2.place(relx=0.33, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ʌ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʌ', user_input))
         self.Button2.place(relx=0.4, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɚ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ɚ', user_input))
         self.Button2.place(relx=0.47, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''u''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('u', user_input))
         self.Button2.place(relx=0.54, rely=0.42, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɔ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ɔ', user_input))
         self.Button2.place(relx=0.61, rely=0.42, height=44, width=67)
         # 2nd row
         self.Button2 = tk.Button(master=top, text='''ʊ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʊ', user_input))
         self.Button2.place(relx=0.05, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɑ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ɑ', user_input))
         self.Button2.place(relx=0.12, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''p''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('p', user_input))
         self.Button2.place(relx=0.19, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''b''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('b', user_input))
         self.Button2.place(relx=0.26, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''t''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('t', user_input))
         self.Button2.place(relx=0.33, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''d''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('d', user_input))
         self.Button2.place(relx=0.4, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''k''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('k', user_input))
         self.Button2.place(relx=0.47, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''g''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('g', user_input))
         self.Button2.place(relx=0.54, rely=0.55, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ʔ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʔ', user_input))
         self.Button2.place(relx=0.61, rely=0.55, height=44, width=67)
         # 3rd row
         self.Button2 = tk.Button(master=top, text='''ʧ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʧ', user_input))
         self.Button2.place(relx=0.05, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ʤ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʤ', user_input))
         self.Button2.place(relx=0.12, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''f''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('f', user_input))
         self.Button2.place(relx=0.19, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''v''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('v', user_input))
         self.Button2.place(relx=0.26, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''θ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('θ', user_input))
         self.Button2.place(relx=0.33, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ð''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ð', user_input))
         self.Button2.place(relx=0.4, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''s''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('s', user_input))
         self.Button2.place(relx=0.47, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''z''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('z', user_input))
         self.Button2.place(relx=0.54, rely=0.68, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ʃ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʃ', user_input))
         self.Button2.place(relx=0.61, rely=0.68, height=44, width=67)
         # 4th row
         self.Button2 = tk.Button(master=top, text='''ʒ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ʒ', user_input))
         self.Button2.place(relx=0.05, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''m''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('m', user_input))
         self.Button2.place(relx=0.12, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''n''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('n', user_input))
         self.Button2.place(relx=0.19, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ŋ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ŋ', user_input))
         self.Button2.place(relx=0.26, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''r''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('r', user_input))
         self.Button2.place(relx=0.33, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''l''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('l', user_input))
         self.Button2.place(relx=0.4, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''ɾ''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
-        self.Button2.place(relx=0.47, rely=0.81, height=44, width=67)
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('ɾ', user_input))
+        self.Button2.place(relx=0.47, rely=0.81, height=44, widt=67)
         self.Button2 = tk.Button(master=top, text='''w''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('w', user_input))
         self.Button2.place(relx=0.54, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''j''', background="#ffe6f2", font=font04,
-                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1')
+                                 foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
+                                 command=lambda: ipa_b.ipa_key('j', user_input))
         self.Button2.place(relx=0.61, rely=0.81, height=44, width=67)
 
 
@@ -176,5 +212,8 @@ def close_window():
 
 
 root = tk.Tk()
+
+user_input = tk.StringVar()
+
 my_gui = App1(root)
 root.mainloop()
