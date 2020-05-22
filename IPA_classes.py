@@ -4,7 +4,7 @@ class IpaSym:
     def __init__(self, symbol, value):
         self.symbol = symbol
         self.value = value
-
+  
     @staticmethod
     def VC_checker(word):
         for i in word:
@@ -12,31 +12,6 @@ class IpaSym:
                 print("'{}' is a consonant".format(i.symbol))
             else:
                 print("'{}' is a vowel".format(i.symbol))
-
-    @staticmethod
-    def mop_syllabification(word):
-        all_syllables = []
-        syllable = ""
-        for el in word:
-            if isinstance(el, Consonant):
-                syllable += el.symbol
-            else:
-                syllable += el.symbol
-                all_syllables.append(syllable)
-                syllable = ""
-        last_syll = all_syllables[-1]
-        num = -1
-        cons_to_add = ""
-        while num >= -5:
-            if not isinstance(word[num], Consonant):
-                cons_to_add = cons_to_add[::-1]
-                last_syll += cons_to_add
-                all_syllables[-1] = last_syll
-                break
-            else:
-                cons_to_add += word[num].symbol
-            num -= 1
-        return all_syllables
 
     @staticmethod
     def word_initial_check(syllables):
@@ -77,6 +52,37 @@ class IpaSym:
 
         print(syllables)
 
+    @staticmethod
+    def mop_syllabification(word):
+        all_syllables = []
+        syllable = ""
+        for el in word:
+            if isinstance(el, Consonant):
+                syllable += el.symbol
+            else:
+                syllable += el.symbol
+                all_syllables.append(syllable)
+                syllable = ""
+        last_syll = all_syllables[-1]
+        num = -1
+        cons_to_add = ""
+        while num >= -5:
+            if not isinstance(word[num], Consonant):
+                cons_to_add = cons_to_add[::-1]
+                last_syll += cons_to_add
+                all_syllables[-1] = last_syll
+                break
+            else:
+                cons_to_add += word[num].symbol
+            num -= 1
+        IpaSym.word_initial_check(all_syllables)
+
+
+class Vowel(IpaSym):
+
+    def __init__(self, symbol, value):
+        super().__init__(symbol, value)
+
 
 class Consonant(IpaSym):
 
@@ -89,17 +95,17 @@ class Consonant(IpaSym):
 
 
 # ___Vowels___
-ch_001 = IpaSym("i", 8)
-ch_002 = IpaSym("ɪ", 8)
-ch_003 = IpaSym("e", 8)
-ch_004 = IpaSym("æ", 8)
-ch_005 = IpaSym("ə", 0)
-ch_006 = IpaSym("ʌ", 8)
-ch_007 = IpaSym("ɚ", 8)
-ch_008 = IpaSym("u", 8)
-ch_009 = IpaSym("ɔ", 8)
-ch_010 = IpaSym("ʊ", 8)
-ch_011 = IpaSym("ɑ", 8)
+ch_001 = Vowel("i", 8)
+ch_002 = Vowel("ɪ", 8)
+ch_003 = Vowel("e", 8)
+ch_004 = Vowel("æ", 8)
+ch_005 = Vowel("ə", 0)
+ch_006 = Vowel("ʌ", 8)
+ch_007 = Vowel("ɚ", 8)
+ch_008 = Vowel("u", 8)
+ch_009 = Vowel("ɔ", 8)
+ch_010 = Vowel("ʊ", 8)
+ch_011 = Vowel("ɑ", 8)
 # ___Consonants___
 ch_01 = Consonant("p", 1)
 ch_02 = Consonant("b", 1)
@@ -145,8 +151,6 @@ list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4, w_list_5]
 
 for word in list_of_words:
     syll_list = IpaSym.mop_syllabification(word)
-    print(syll_list)
-    IpaSym.word_initial_check(syll_list)
 
 
 """

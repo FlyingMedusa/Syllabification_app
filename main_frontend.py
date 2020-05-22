@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import Label, Button, StringVar
 import IPA_buttons as ipa_b
+import MOP_button as mop_b
 
 
 class App1:
@@ -34,7 +35,8 @@ class App1:
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
         self.Button1.place(relx=0.480, rely=0.25, height=36, width=70)
         self.Button1 = tk.Button(master=top, text='DONE', background='#ffe6f2',
-                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
+                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
+                                 command=lambda: ipa_b.done_key(user_input))
         self.Button1.place(relx=0.555, rely=0.25, height=36, width=125)
 
         # ___Main Control Buttons___
@@ -42,7 +44,8 @@ class App1:
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
         self.Button1.place(relx=0.8, rely=0.25, height=36, width=150)
         self.Button1 = tk.Button(master=top, text='MOP', background='#ffe6f2',
-                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
+                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
+                                 command=mop_b.about_MOP)
         self.Button1.place(relx=0.8, rely=0.35, height=36, width=150)
         self.Button1 = tk.Button(master=top, text='SSG', background='#ffe6f2',
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)

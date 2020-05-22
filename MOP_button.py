@@ -3,7 +3,6 @@ from tkinter import Label, Button, StringVar
 
 
 def about_MOP():
-    # basic info about MOP
     about = tk.Tk()
     about.geometry("300x250+350+200")
     about.title("What's the MOP?")
