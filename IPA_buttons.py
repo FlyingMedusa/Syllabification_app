@@ -10,7 +10,7 @@ def ipa_key(elem, user_input):
 def done_key(user_input):
     try:
         global expression
-        result = "wait a bit! IN PROGRESS"
+        result = ipa_c.sounds_to_obj(expression)
         user_input.set(result)
         expression = ""
     except:

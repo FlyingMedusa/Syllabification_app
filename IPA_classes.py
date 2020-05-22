@@ -13,8 +13,10 @@ class IpaSym:
             else:
                 print("'{}' is a vowel".format(i.symbol))
 
+
     @staticmethod
     def word_initial_check(syllables):
+        print(syllables, "are here")
 
         three_c_clusters = ["spl", "spr", "str", "skr", "skw"]
         two_c_clusters = ["sm", "sn", "st", "sw", "sk", "sl", "sp", "sf", "θw",
@@ -49,8 +51,9 @@ class IpaSym:
             if cluster not in two_c_clusters and cluster != "" and three_c == False:
                 syllables[j-1] += cluster[0]
                 syllables[j] = temp_syll[1:sound_num]
-
         print(syllables)
+
+        return syllables
 
     @staticmethod
     def mop_syllabification(word):
@@ -75,7 +78,7 @@ class IpaSym:
             else:
                 cons_to_add += word[num].symbol
             num -= 1
-        IpaSym.word_initial_check(all_syllables)
+        return all_syllables
 
 
 class Vowel(IpaSym):
@@ -94,18 +97,27 @@ class Consonant(IpaSym):
         return ch1.value > ch2.value
 
 
-# ___Vowels___
-ch_001 = Vowel("i", 8)
-ch_002 = Vowel("ɪ", 8)
-ch_003 = Vowel("e", 8)
-ch_004 = Vowel("æ", 8)
-ch_005 = Vowel("ə", 0)
-ch_006 = Vowel("ʌ", 8)
-ch_007 = Vowel("ɚ", 8)
-ch_008 = Vowel("u", 8)
-ch_009 = Vowel("ɔ", 8)
-ch_010 = Vowel("ʊ", 8)
-ch_011 = Vowel("ɑ", 8)
+def sounds_to_obj(word):
+    print('Stage1 :', word)
+    sound_dict = {
+        ch_01: 'p', ch_02: 'b', ch_03: 't', ch_04: 'd', ch_05: 'k', ch_06: 'g', 
+        ch_07: 'ʔ', ch_08: 'ʧ', ch_09: 'ʤ', ch_10: 'f', ch_11: 'v', ch_12: 'θ', 
+        ch_13: 'ð', ch_14: 's', ch_15: 'z', ch_16: 'ʃ', ch_17: 'ʒ', ch_18: 'm', 
+        ch_19: 'n', ch_20: 'ŋ', ch_21: 'r', ch_22: 'l', ch_23: 'ɾ', ch_24: 'w', 
+        ch_25: 'j', ch_26: 'i', ch_27: 'ɪ', ch_28: 'e', ch_29: 'æ', ch_30: 'ə', 
+        ch_31: 'ʌ', ch_32: 'ɚ', ch_33: 'u', ch_34: 'ɔ', ch_35: 'ʊ', ch_36: 'ɑ'}
+    list_of_obj = []
+    for sound in word:
+        for key, value in sound_dict.items(): 
+            if sound == value: 
+                list_of_obj.append(key)
+    print('End of stage1:', list_of_obj)
+    syllabified = IpaSym.mop_syllabification(list_of_obj)
+    improved = IpaSym.word_initial_check(syllabified)
+    print(improved)
+    return improved
+
+
 # ___Consonants___
 ch_01 = Consonant("p", 1)
 ch_02 = Consonant("b", 1)
@@ -132,18 +144,31 @@ ch_22 = Consonant("l", 5)
 ch_23 = Consonant("ɾ", 6)
 ch_24 = Consonant("w", 7)
 ch_25 = Consonant("j", 7)
+# ___Vowels___
+ch_26 = Vowel("i", 8)
+ch_27 = Vowel("ɪ", 8)
+ch_28 = Vowel("e", 8)
+ch_29 = Vowel("æ", 8)
+ch_30 = Vowel("ə", 0)
+ch_31 = Vowel("ʌ", 8)
+ch_32 = Vowel("ɚ", 8)
+ch_33 = Vowel("u", 8)
+ch_34 = Vowel("ɔ", 8)
+ch_35 = Vowel("ʊ", 8)
+ch_36 = Vowel("ɑ", 8)
+
 
 
 # example -> word: impartial
-w_list_1 = [ch_002, ch_18, ch_01, ch_011, ch_21, ch_16, ch_005, ch_22]
+w_list_1 = [ch_27, ch_18, ch_01, ch_36, ch_21, ch_16, ch_30, ch_22]
 # example -> word: install
-w_list_2 = [ch_002, ch_19, ch_14, ch_03, ch_011, ch_22, ch_22]
+w_list_2 = [ch_27, ch_19, ch_14, ch_03, ch_36, ch_22, ch_22]
 # example -> word: destruction
-w_list_3 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_006, ch_05, ch_16, ch_005, ch_19]
+w_list_3 = [ch_04, ch_27, ch_14, ch_03, ch_21, ch_31, ch_05, ch_16, ch_30, ch_19]
 # example -> word: pastry
-w_list_4 = [ch_01, ch_003, ch_001, ch_14, ch_03, ch_21, ch_001]
+w_list_4 = [ch_01, ch_28, ch_26, ch_14, ch_03, ch_21, ch_26]
 # example -> testing non-words: destrguction
-w_list_5 = [ch_04, ch_002, ch_14, ch_03, ch_21, ch_06, ch_006, ch_05, ch_16, ch_005, ch_19]
+w_list_5 = [ch_04, ch_27, ch_14, ch_03, ch_21, ch_06, ch_31, ch_05, ch_16, ch_30, ch_19]
 
 
 
@@ -151,6 +176,12 @@ list_of_words = [w_list_1, w_list_2, w_list_3, w_list_4, w_list_5]
 
 for word in list_of_words:
     syll_list = IpaSym.mop_syllabification(word)
+
+
+test_str1 = "dɪstrʌkʃən"
+test_str = "pɑstrition"
+x = sounds_to_obj(test_str)
+print(x)
 
 
 """
