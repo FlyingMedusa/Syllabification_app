@@ -16,7 +16,6 @@ class IpaSym:
 
     @staticmethod
     def word_initial_check(syllables):
-        print(syllables, "are here")
 
         three_c_clusters = ["spl", "spr", "str", "skr", "skw"]
         two_c_clusters = ["sm", "sn", "st", "sw", "sk", "sl", "sp", "sf", "θw",
@@ -48,11 +47,9 @@ class IpaSym:
                     elif cluster in three_c_clusters:
                         three_c = True
                     m -= 1
-            if cluster not in two_c_clusters and cluster != "" and three_c == False:
+            if cluster not in two_c_clusters and three_c == False and len(cluster) > 1:
                 syllables[j-1] += cluster[0]
                 syllables[j] = temp_syll[1:sound_num]
-        print(syllables)
-
         return syllables
 
     @staticmethod
@@ -98,7 +95,7 @@ class Consonant(IpaSym):
 
 
 def sounds_to_obj(word):
-    print('Stage1 :', word)
+
     sound_dict = {
         ch_01: 'p', ch_02: 'b', ch_03: 't', ch_04: 'd', ch_05: 'k', ch_06: 'g', 
         ch_07: 'ʔ', ch_08: 'ʧ', ch_09: 'ʤ', ch_10: 'f', ch_11: 'v', ch_12: 'θ', 
@@ -111,10 +108,8 @@ def sounds_to_obj(word):
         for key, value in sound_dict.items(): 
             if sound == value: 
                 list_of_obj.append(key)
-    print('End of stage1:', list_of_obj)
     syllabified = IpaSym.mop_syllabification(list_of_obj)
     improved = IpaSym.word_initial_check(syllabified)
-    print(improved)
     return improved
 
 
@@ -179,8 +174,8 @@ for word in list_of_words:
 
 
 test_str1 = "dɪstrʌkʃən"
-test_str = "pɑstrition"
-x = sounds_to_obj(test_str)
+test_str = "tiri"
+x = sounds_to_obj(test_str1)
 print(x)
 
 

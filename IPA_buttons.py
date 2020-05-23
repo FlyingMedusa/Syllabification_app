@@ -16,3 +16,8 @@ def done_key(user_input):
     except:
         user_input.set(" error ")
         expression = ""
+
+def clear_key(user_input):
+    global expression
+    user_input.set("")
+    expression = ""

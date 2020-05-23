@@ -32,7 +32,8 @@ class App1:
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
         self.Button1.place(relx=0.405, rely=0.25, height=36, width=70)
         self.Button1 = tk.Button(master=top, text='CLEAR', background='#ffe6f2',
-                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",)
+                                 font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
+                                 command=lambda: ipa_b.clear_key(user_input))
         self.Button1.place(relx=0.480, rely=0.25, height=36, width=70)
         self.Button1 = tk.Button(master=top, text='DONE', background='#ffe6f2',
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
