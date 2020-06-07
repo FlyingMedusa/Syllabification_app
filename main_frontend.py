@@ -3,6 +3,7 @@ from tkinter import Label, Button, StringVar, PhotoImage
 import IPA_buttons as ipa_b
 import MOP_button as mop_b
 import SSG_button as ssg_b
+import authors as auth_b
 
 
 class App1:
@@ -59,7 +60,7 @@ class App1:
         self.Button1.place(relx=0.82, rely=0.25, height=53, width=150)
         self.Button1 = tk.Button(master=top, text='AUTHORS', background='#ffe6f2',
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
-                                 cursor="heart",)
+                                 cursor="heart", command=auth_b.authors)
         self.Button1.place(relx=0.82, rely=0.4, height=53, width=150)
 
         image = tk.PhotoImage(file="contact.png")
