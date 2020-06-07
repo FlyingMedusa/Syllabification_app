@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import Label, Button, StringVar, PhotoImage
 import IPA_buttons as ipa_b
 import MOP_button as mop_b
+import SSG_button as ssg_b
 
 
 class App1:
@@ -22,7 +23,7 @@ class App1:
 
         self.Label1 = tk.Label(master=top, text="Syllabification App", background="#ffcce6",
                                font=font01, foreground="#5c5c8a")
-        self.Label1.place(relx=0.03, rely=0.02, height=71, width=507)
+        self.Label1.place(relx=0.268, rely=0.02, height=51, width=507)
 
         self.entry1 = tk.Entry(master=top, textvariable=user_input, background="#f2f2f2", foreground="#735c8a",
                                selectbackground="#ff3399", font=font02)
@@ -54,7 +55,7 @@ class App1:
         self.Button1.place(relx=0.82, rely=0.1, height=53, width=150)
         self.Button1 = tk.Button(master=top, text='About SSG', background='#ffe6f2',
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
-                                 cursor="heart")
+                                 cursor="heart", command=ssg_b.about_SSG)
         self.Button1.place(relx=0.82, rely=0.25, height=53, width=150)
         self.Button1 = tk.Button(master=top, text='AUTHORS', background='#ffe6f2',
                                  font=font03, foreground="#5c5c8a", activebackground="#ffe6f9",
@@ -65,7 +66,7 @@ class App1:
         l1 = tk.Label(top, image=image, borderwidth=0)
         l1.image = image
         l1.pack()
-        l1.place(x=915, y=292)
+        l1.place(relx=0.835, rely=0.53)
         self.Label1 = tk.Label(master=top, text="↑Send us your feedback!↑", background="#ffcce6",
                                font=font05, foreground="#5c5c8a")
         self.Label1.place(relx=0.775, rely=0.71, height=20, width=250)
