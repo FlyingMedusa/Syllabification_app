@@ -37,17 +37,18 @@ def authors():
     background="#ffcce6")
     labelinfo.pack()
 
+    #___Buttons___
     photo1 = tk.PhotoImage(file="Vi.PNG")
     button1 = tk.Button(frame1, compound=tk.TOP, width=148, height=148, image=photo1, 
-                        bg='white', command=openweb_vi)
+                        bg='white', cursor="heart", command=openweb_vi)
     button1.pack(side=tk.LEFT, padx=2, pady=2)
 
     photo2 = tk.PhotoImage(file="Ma.PNG")
     button1 = tk.Button(frame2, compound=tk.TOP, width=148, height=148, image=photo2, 
-                        bg='white', command=openweb_ma)
+                        bg='white', cursor="heart", command=openweb_ma)
     button1.pack(side=tk.LEFT, padx=2, pady=2)
 
-
+    #___Labels under images___
     Label1 = tk.Label(frame3, text="Wiktoria Połetek", background="#ffcce6",
                                font="System 13", foreground="#505095")
     Label1.pack()

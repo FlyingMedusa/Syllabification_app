@@ -77,6 +77,12 @@ class IpaSym:
             num -= 1
         return all_syllables
 
+    @staticmethod
+    def pre_ssg(word):
+        print(word)
+        print(sounds_to_obj(word))
+        
+
 
 class Vowel(IpaSym):
 
@@ -102,7 +108,7 @@ def sounds_to_obj(word):
         ch_13: 'ð', ch_14: 's', ch_15: 'z', ch_16: 'ʃ', ch_17: 'ʒ', ch_18: 'm', 
         ch_19: 'n', ch_20: 'ŋ', ch_21: 'r', ch_22: 'l', ch_23: 'ɾ', ch_24: 'w', 
         ch_25: 'j', ch_26: 'i', ch_27: 'ɪ', ch_28: 'e', ch_29: 'æ', ch_30: 'ə', 
-        ch_31: 'ʌ', ch_32: 'ɚ', ch_33: 'u', ch_34: 'ɔ', ch_35: 'ʊ', ch_36: 'ɑ'}
+        ch_31: 'ʌ', ch_32: 'ɚ', ch_33: 'u', ch_34: 'ɔ', ch_35: 'ʊ', ch_36: 'ɑ', ch_37: 'h'}
     list_of_obj = []
     for sound in word:
         for key, value in sound_dict.items(): 
@@ -139,6 +145,7 @@ ch_22 = Consonant("l", 5)
 ch_23 = Consonant("ɾ", 6)
 ch_24 = Consonant("w", 7)
 ch_25 = Consonant("j", 7)
+ch_37 = Consonant("h", 3)
 # ___Vowels___
 ch_26 = Vowel("i", 8)
 ch_27 = Vowel("ɪ", 8)
@@ -153,7 +160,13 @@ ch_35 = Vowel("ʊ", 8)
 ch_36 = Vowel("ɑ", 8)
 
 
+test_str1 = "dɪstrʌkʃən"
+test_str = "tiri"
+x = IpaSym.pre_ssg(test_str1)
+print(x)
 
+
+'''
 # example -> word: impartial
 w_list_1 = [ch_27, ch_18, ch_01, ch_36, ch_21, ch_16, ch_30, ch_22]
 # example -> word: install
@@ -178,7 +191,7 @@ test_str = "tiri"
 x = sounds_to_obj(test_str1)
 print(x)
 
-
+'''
 """
 
 vowel > glide > flap > liquid > nasal > fricative > affricate > plosive
@@ -186,7 +199,7 @@ vowel > glide > flap > liquid > nasal > fricative > affricate > plosive
 plosive = "pbtdkgʔ"
 nasal = "mnŋ"
 tap_flap = "ɾ"
-fricative = "fvθðszʃʒ"
+fricative = "fvθðszʃʒh"
 liquid = "ɹl"
 glide = "wj"
 affricate = "ʧʤ"
