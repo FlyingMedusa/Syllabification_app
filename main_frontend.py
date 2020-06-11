@@ -28,26 +28,26 @@ class App1:
 
         self.entry1 = tk.Entry(master=top, textvariable=user_input, background="#f2f2f2", foreground="#735c8a",
                                selectbackground="#ff3399", font=font02)
-        self.entry1.place(relx=0.046, rely=0.265, height=36, relwidth=0.450)
+        self.entry1.place(relx=0.049, rely=0.265, height=36, relwidth=0.320)
         user_input.set('HINT: use the buttons below')
+        self.entry2 = tk.Entry(master=top, textvariable=sonority, background="#f2f2f2", foreground="#735c8a",
+                               selectbackground="#ff3399", font=font02)
+        self.entry2.place(relx=0.635, rely=0.265, height=36, width=137)
+        sonority.set('← Step 2')
 
         # ___Entry Control Buttons___
-        self.Button1 = tk.Button(master=top, text='UNDO', background='#ffe6f2',
-                                 font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
-                                 borderwidth='1', cursor="heart",)
-        self.Button1.place(relx=0.505, rely=0.265, height=36, width=67)
         self.Button1 = tk.Button(master=top, text='CLEAR', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
                                  borderwidth='1', cursor="heart", command=lambda: ipa_b.clear_key(user_input))
-        self.Button1.place(relx=0.57, rely=0.265, height=36, width=67)
-        self.Button1 = tk.Button(master=top, text='MOP', background='#ffe6f2',
+        self.Button1.place(relx=0.375, rely=0.265, height=36, width=67)
+        self.Button1 = tk.Button(master=top, text='Step1: MOP', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
                                  borderwidth='1', cursor="heart", command=lambda: ipa_b.done_key(user_input))
-        self.Button1.place(relx=0.635, rely=0.265, height=36, width=67)
+        self.Button1.place(relx=0.44, rely=0.265, height=36, width=137)
         self.Button1 = tk.Button(master=top, text='SSG', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
                                  borderwidth='1', cursor="heart", command=lambda: ipa_b.done_key(user_input))
-        self.Button1.place(relx=0.7, rely=0.265, height=36, width=67)
+        self.Button1.place(relx=0.57, rely=0.265, height=36, width=67)
 
         # ___Main Control Buttons___
         self.Button1 = tk.Button(master=top, text='About MOP', background='#ffe6f2',
@@ -263,6 +263,7 @@ def close_window():
 root = tk.Tk()
 
 user_input = tk.StringVar()
+sonority = tk.StringVar()
 
 my_gui = App1(root)
 root.mainloop()

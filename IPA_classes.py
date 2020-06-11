@@ -53,7 +53,7 @@ class IpaSym:
         return syllables
 
     @staticmethod
-    def mop_syllabification(word):
+    def basic_syllabification(word):
         all_syllables = []
         syllable = ""
         for el in word:
@@ -79,10 +79,10 @@ class IpaSym:
 
     @staticmethod
     def pre_ssg(word):
-        print(word)
-        print(sounds_to_obj(word))
+        list_of_obj = sounds_to_obj_SSG(word)
+        y = IpaSym.basic_syllabification(list_of_obj)
+        print(y)
         
-
 
 class Vowel(IpaSym):
 
@@ -100,7 +100,7 @@ class Consonant(IpaSym):
         return ch1.value > ch2.value
 
 
-def sounds_to_obj(word):
+def sounds_to_obj_MOP(word):
 
     sound_dict = {
         ch_01: 'p', ch_02: 'b', ch_03: 't', ch_04: 'd', ch_05: 'k', ch_06: 'g', 
@@ -114,9 +114,26 @@ def sounds_to_obj(word):
         for key, value in sound_dict.items(): 
             if sound == value: 
                 list_of_obj.append(key)
-    syllabified = IpaSym.mop_syllabification(list_of_obj)
+    syllabified = IpaSym.basic_syllabification(list_of_obj)
     improved = IpaSym.word_initial_check(syllabified)
     return improved
+
+
+def sounds_to_obj_SSG(word):
+
+    sound_dict = {
+        ch_01: 'p', ch_02: 'b', ch_03: 't', ch_04: 'd', ch_05: 'k', ch_06: 'g', 
+        ch_07: 'ʔ', ch_08: 'ʧ', ch_09: 'ʤ', ch_10: 'f', ch_11: 'v', ch_12: 'θ', 
+        ch_13: 'ð', ch_14: 's', ch_15: 'z', ch_16: 'ʃ', ch_17: 'ʒ', ch_18: 'm', 
+        ch_19: 'n', ch_20: 'ŋ', ch_21: 'r', ch_22: 'l', ch_23: 'ɾ', ch_24: 'w', 
+        ch_25: 'j', ch_26: 'i', ch_27: 'ɪ', ch_28: 'e', ch_29: 'æ', ch_30: 'ə', 
+        ch_31: 'ʌ', ch_32: 'ɚ', ch_33: 'u', ch_34: 'ɔ', ch_35: 'ʊ', ch_36: 'ɑ', ch_37: 'h'}
+    list_of_obj = []
+    for sound in word:
+        for key, value in sound_dict.items(): 
+            if sound == value: 
+                list_of_obj.append(key)
+    return list_of_obj
 
 
 # ___Consonants___
@@ -151,7 +168,7 @@ ch_26 = Vowel("i", 8)
 ch_27 = Vowel("ɪ", 8)
 ch_28 = Vowel("e", 8)
 ch_29 = Vowel("æ", 8)
-ch_30 = Vowel("ə", 0)
+ch_30 = Vowel("ə", 8)
 ch_31 = Vowel("ʌ", 8)
 ch_32 = Vowel("ɚ", 8)
 ch_33 = Vowel("u", 8)
@@ -162,8 +179,10 @@ ch_36 = Vowel("ɑ", 8)
 
 test_str1 = "dɪstrʌkʃən"
 test_str = "tiri"
+#x = IpaSym.pre_ssg(test_str1)
 x = IpaSym.pre_ssg(test_str1)
 print(x)
+
 
 
 '''
