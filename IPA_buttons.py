@@ -7,9 +7,10 @@ def ipa_key(elem, user_input):
     expression = expression + str(elem)
     user_input.set(expression)
 
-def clear_key(user_input):
+def clear_key(user_input, sonority):
     global expression
     user_input.set("")
+    sonority.set("")
     expression = ""
 
 def done_key(user_input):

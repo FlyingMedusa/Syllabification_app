@@ -122,12 +122,15 @@ class IpaSym:
                             sonority = False
             verify_sonority.append(sonority)
             sonority = True
+
+        '''
         if False in verify_sonority:
             print('ill')
             return 'ill-formed'
         else:
             print('good')
             return 'well-formed'
+        '''
         
 class Vowel(IpaSym):
 
@@ -236,14 +239,14 @@ ch_36 = Vowel("ɑ", 8)
 
 
 
-'''
+
 
 
 test_str1 = "dɪ strʌ kʃən"
 test_str = "tiri"
 sounds_to_obj_SSG(test_str1)
 
-
+'''
 # example -> word: impartial
 w_list_1 = [ch_27, ch_18, ch_01, ch_36, ch_21, ch_16, ch_30, ch_22]
 # example -> word: install

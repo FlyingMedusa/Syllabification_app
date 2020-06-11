@@ -4,6 +4,7 @@ import IPA_buttons as ipa_b
 import MOP_button as mop_b
 import SSG_button as ssg_b
 import authors as auth_b
+import help_button as help_b
 
 
 class App1:
@@ -38,7 +39,7 @@ class App1:
         # ___Entry Control Buttons___
         self.Button1 = tk.Button(master=top, text='CLEAR', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
-                                 borderwidth='1', cursor="heart", command=lambda: ipa_b.clear_key(user_input))
+                                 borderwidth='1', cursor="heart", command=lambda: ipa_b.clear_key(user_input, sonority))
         self.Button1.place(relx=0.375, rely=0.265, height=36, width=67)
         self.Button1 = tk.Button(master=top, text='Step1: MOP', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
@@ -252,7 +253,7 @@ class App1:
         self.Button2.place(relx=0.505, rely=0.81, height=44, width=67)
         self.Button2 = tk.Button(master=top, text='''HELP ME PLS''', background="#ffe6f2", font=font03,
                                  foreground="#5c5c8a", activebackground="#ff3399", borderwidth='1',
-                                 cursor="heart",)
+                                 cursor="heart", command=help_b.about_help)
         self.Button2.place(relx=0.635, rely=0.81, height=44, width=138)
 
 
