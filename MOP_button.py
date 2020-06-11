@@ -16,14 +16,14 @@ def about_MOP():
     S.config(command=T.yview)
     T.config(yscrollcommand=S.set)
     quote = """ Maximal Onset Principle 
-   is a principle determining 
-   underlying syllable division. 
-   It states that intervocalic 
-   consonants are maximally 
-   assigned to the onsets of 
-   syllables in conformity with
-   universal and language-specific 
-   conditions."""
+            is a principle determining 
+            underlying syllable division. 
+            It states that intervocalic 
+            consonants are maximally 
+            assigned to the onsets of 
+            syllables in conformity with
+            universal and language-specific 
+            conditions."""
     T.insert(tk.END, quote)
     tk.mainloop()
 

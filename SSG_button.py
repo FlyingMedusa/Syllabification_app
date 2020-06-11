@@ -16,11 +16,11 @@ def about_SSG():
     S.config(command=T.yview)
     T.config(yscrollcommand=S.set)
     quote = """ Sonority Sequencing Generalization: 
-   universal phonological principle
-   refering to the syllable structure,
-   which says that the sonority
-   should rise from the onset
-   to the nucleus (the peak)
-   and the decrease to the coda."""
+            universal phonological principle
+            refering to the syllable structure,
+            which says that the sonority
+            should rise from the onset
+            to the nucleus (the peak)
+            and the decrease to the coda."""
     T.insert(tk.END, quote)
     tk.mainloop()
