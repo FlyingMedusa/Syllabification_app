@@ -78,12 +78,57 @@ class IpaSym:
         return all_syllables
 
     @staticmethod
-    def pre_ssg(word):
-        list_of_obj = sounds_to_obj_SSG(word)
-        y = IpaSym.basic_syllabification(list_of_obj)
-        print(y)
-        
+    def is_sonorous(post_mop):
+        sonority_syllables = []
+        part = ""
+        for sound in post_mop:
+            if sound == ".":
+                sonority_syllables.append(part)
+                part = ""
+            else:
+                part += str(sound.value)
 
+        print(sonority_syllables)
+
+        pre_vowel_sets = []        
+        for set_of_numbers in sonority_syllables:
+            pre_vowel = ""
+            for number in set_of_numbers:
+                if int(number) == 8:
+                    break
+                else:
+                    pre_vowel += number
+            pre_vowel_sets.append(pre_vowel)
+        post_vowel_sets = []
+        for set_of_numbers in sonority_syllables:
+            part_left = set_of_numbers
+            for num in set_of_numbers:
+                if int(num) != 8:
+                    part_left = part_left[1:]
+                elif int(num) == 8:
+                    post_vowel_sets.append(part_left[1:])
+                    break
+        
+        sonority = True
+        verify_sonority = []
+        for seq in pre_vowel_sets:
+            if len(seq) > 1:
+                first_pair = seq[0] < seq[1]
+                if first_pair == False:
+                    sonority = False   
+                    if len(seq) == 3 and first_pair == True:
+                        second_pair = seq[1] < seq[2]
+                        if second_pair == False:
+                            sonority = False
+            verify_sonority.append(sonority)
+            sonority = True
+        if False in verify_sonority:
+            print('ill')
+            return 'ill-formed'
+        else:
+            print('good')
+            return 'well-formed'
+        
 class Vowel(IpaSym):
 
     def __init__(self, symbol, value):
@@ -120,7 +165,6 @@ def sounds_to_obj_MOP(word):
 
 
 def sounds_to_obj_SSG(word):
-
     sound_dict = {
         ch_01: 'p', ch_02: 'b', ch_03: 't', ch_04: 'd', ch_05: 'k', ch_06: 'g', 
         ch_07: 'ʔ', ch_08: 'ʧ', ch_09: 'ʤ', ch_10: 'f', ch_11: 'v', ch_12: 'θ', 
@@ -128,12 +172,26 @@ def sounds_to_obj_SSG(word):
         ch_19: 'n', ch_20: 'ŋ', ch_21: 'r', ch_22: 'l', ch_23: 'ɾ', ch_24: 'w', 
         ch_25: 'j', ch_26: 'i', ch_27: 'ɪ', ch_28: 'e', ch_29: 'æ', ch_30: 'ə', 
         ch_31: 'ʌ', ch_32: 'ɚ', ch_33: 'u', ch_34: 'ɔ', ch_35: 'ʊ', ch_36: 'ɑ', ch_37: 'h'}
+    one_word = ""
+    for item in word:
+        if item == word[-1]:
+            one_word += item
+        else:
+            one_word += item
+            one_word += " "
+    print(one_word)
     list_of_obj = []
-    for sound in word:
-        for key, value in sound_dict.items(): 
-            if sound == value: 
-                list_of_obj.append(key)
-    return list_of_obj
+    for sound in one_word:
+        if sound == " ":
+            list_of_obj.append('.')
+        else:
+            for key, value in sound_dict.items(): 
+                if sound == value: 
+                    list_of_obj.append(key)
+    list_of_obj.append('.')
+    print(list_of_obj)
+    is_it = IpaSym.is_sonorous(list_of_obj)
+    return is_it
 
 
 # ___Consonants___
@@ -177,15 +235,15 @@ ch_35 = Vowel("ʊ", 8)
 ch_36 = Vowel("ɑ", 8)
 
 
-test_str1 = "dɪstrʌkʃən"
-test_str = "tiri"
-#x = IpaSym.pre_ssg(test_str1)
-x = IpaSym.pre_ssg(test_str1)
-print(x)
-
-
 
 '''
+
+
+test_str1 = "dɪ strʌ kʃən"
+test_str = "tiri"
+sounds_to_obj_SSG(test_str1)
+
+
 # example -> word: impartial
 w_list_1 = [ch_27, ch_18, ch_01, ch_36, ch_21, ch_16, ch_30, ch_22]
 # example -> word: install

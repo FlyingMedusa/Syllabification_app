@@ -46,7 +46,7 @@ class App1:
         self.Button1.place(relx=0.44, rely=0.265, height=36, width=137)
         self.Button1 = tk.Button(master=top, text='SSG', background='#ffe6f2',
                                  font=font06, foreground="#5c5c8a", activebackground="#ffe6f9",
-                                 borderwidth='1', cursor="heart", command=lambda: ipa_b.done_key(user_input))
+                                 borderwidth='1', cursor="heart", command=lambda: ipa_b.ssg_key(user_input, sonority))
         self.Button1.place(relx=0.57, rely=0.265, height=36, width=67)
 
         # ___Main Control Buttons___

@@ -17,13 +17,17 @@ def done_key(user_input):
         global expression
         result = ipa_c.sounds_to_obj_MOP(expression)
         user_input.set(result)
-        expression = ""
+        expression = result
     except:
         user_input.set(" error ")
         expression = ""
 
-def ssg_key(user_input):
+def ssg_key(user_input, sonority):
     try:
-        pass
+        global expression
+        result = ipa_c.sounds_to_obj_SSG(expression)
+        sonority.set(result)
+        expression = ""
     except:
-        pass
+        sonority.set(" error ")
+        expression = ""
