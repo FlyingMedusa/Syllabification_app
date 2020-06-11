@@ -15,19 +15,19 @@ Python version:     Python 3
     - webbrowser (built-in)
 
 ### Files:
-## *Run the app with this script*:
+#### *Run the app with this script*:
 - main_frontend.py
     - [GUI - TkInter]
-## Main logic script:
+#### Main logic script:
 - IPA_classes.py
     - [main script - OOP backend]
-## Buttons:
+#### Buttons:
 - IPA_buttons.py
 - MOP_button.py
 - SSG_button.py
 - help_button.py
 - authors.py
-## Images:
+#### Images:
 - contact.PNG
 - Vi.PNG
 - Ma.PNG
