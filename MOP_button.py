@@ -6,7 +6,7 @@ def about_MOP():
     about = tk.Tk()
     about.title("What's the MOP?")
     about.configure(background="#ffcce6")
-
+    about.resizable(width='false', height='true')
 
     S = tk.Scrollbar(about)
     T = tk.Text(about, height=10, width=35, 

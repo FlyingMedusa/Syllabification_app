@@ -69,7 +69,8 @@ class App1:
         l1.image = image
         l1.pack()
         l1.place(relx=0.835, rely=0.53)
-        self.Label1 = tk.Label(master=top, text="↑Send us your feedback!↑", background="#ffcce6",
+
+        self.Label1 = tk.Label(master=top, text="Send us your feedback!", background="#ffcce6",
                                font=font05, foreground="#5c5c8a")
         self.Label1.place(relx=0.775, rely=0.71, height=20, width=250)
  

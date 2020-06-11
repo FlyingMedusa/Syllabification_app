@@ -6,6 +6,7 @@ def about_SSG():
     about = tk.Tk()
     about.title("What's the SSG?")
     about.configure(background="#ffcce6")
+    about.resizable(width='false', height='true')
 
 
     S = tk.Scrollbar(about)
